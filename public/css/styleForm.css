@@ -1,0 +1,76 @@
+body{    
+    background-image: url('../img/bg-architecture.jpeg');
+    background-size: 100vw 100vh;
+    background-attachment: fixed;    
+}
+
+#nameProject{
+    position: relative; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 50%;
+}
+
+#description{
+    resize: none;
+}
+
+#size-row{
+    height: 10px;
+}
+
+.justify{
+    text-align: justify;
+}
+
+.page{
+    background-color: white;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+.header{
+    margin-top: 30px;
+    border-top: 3px solid #e90f51;
+    background: #3c067a;
+    color: #fff;
+    width: 60%;
+    padding: 1%;
+}
+.header-left i{
+    margin-left: 5%;
+}
+.header-right h4{
+    text-align: right;
+    margin-right: 10%;
+    line-height: 2; 
+}
+.content{    
+    background: rgba(0, 0, 0, 0.9);
+    width: 60%;
+}
+.content .form-content{    
+    padding:2%;
+}
+.content .form-content .input-group .input-group-text{
+    background:#333;
+    color:#fff;
+    border:none;
+    border-radius:0;
+    font-weight: 600;
+}
+.content .form-content .input-group input{
+        border-radius: 0;
+}
+.content .form-content .input-group input:focus{
+    border-color: transparent;
+}
+.content .form-content h4{
+    margin-bottom:5%;
+}
+.content .form-content button{    
+    color: #fff;
+    border-radius: 7px;
+    width: 20%;
+    font-weight: 600;
+}

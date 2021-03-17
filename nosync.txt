@@ -1,0 +1,23 @@
+/*GET DATA WITH FIREBASE
+    $var = $this.getConnection().getReference('tabla').getValue();
+    if  ($var = $this.getConnection().getReference('tabla').getSnapshot()->hasChild($id)){
+        $var = $this.getConnection().getReference('tabla').getChild($id).getValue();
+    }
+*/
+
+/*GENERATE PLUCK WITH FIREBASE
+$registro = $this->getConnection()->getReference('categorias')->getvalue();
+    foreach ($registro as $key => $value) {
+        $temp['key'] = $key;
+        $temp =$value;
+        $categorias[] = $temp;
+    }
+*/
+
+/*INSERT DATA WITH FIREBASE
+    $data = [
+        'nombre'=>$request->nombre
+    ];
+
+    $this->getConnection()->getReference('categorias')->push($data)->getKey();
+*/
