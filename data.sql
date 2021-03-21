@@ -1,7 +1,7 @@
 CREATE DATABASE db_obracivil;
 USE db_obracivil;
 
-/*ID, NOMBRE*/
+/*ID, NOMBRE ---------------> TABLE: CATEGORIES*/
 INSERT INTO categorias VALUES(NULL, 'Sin Categoria');
 INSERT INTO categorias VALUES(NULL, 'Materiales Metalicos');
 INSERT INTO categorias VALUES(NULL, 'Materiales de Concreto');
@@ -9,17 +9,18 @@ INSERT INTO categorias VALUES(NULL, 'Materiales de Arcilla');
 INSERT INTO categorias VALUES(NULL, 'Materiales de Plastico');
 INSERT INTO categorias VALUES(NULL, 'Otros');
 
-/*ID, NOMBRE*/
+/*ID, NOMBRE----------------> TABLE: PROVIDERS*/
 INSERT INTO proveedores VALUES(NULL, 'Sin Proveedor');
 INSERT INTO proveedores VALUES(NULL, 'El Cerrito');
 INSERT INTO proveedores VALUES(NULL, 'Mas Ferreterias');
 
-/*ID, NOMBRE*/
+/*ID, NOMBRE----------------> TABLE: PROJECTS*/
 INSERT INTO proyectos VALUES(NULL, 'Lozas');
 INSERT INTO proyectos VALUES(NULL, 'Cimientos');
 INSERT INTO proyectos VALUES(NULL, 'Paredes');
 INSERT INTO proyectos VALUES(NULL, 'Pisos');
 
+/*TABLE: SUPPLIES*/
 /*ID, NOMBRE, UNIDAD, PRECIO_UNITARIO, IDCATEGORIA, IDPROYECTO, IDPROVEEDOR, IDINSUMO*/
 INSERT INTO insumos VALUES(NULL, 'Varillas de 3/8', 'pieza', 93.00, 2, 1, 2, 1);
 INSERT INTO insumos VALUES(NULL, 'Varillas de 3/8', 'pieza', 93.00, 2, 2, 2, 1);

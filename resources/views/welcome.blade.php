@@ -6,7 +6,7 @@
 <section>
     <div class="container text-center">
         <div class="page-header">
-            <h1>Bienvenidos</h1>
+            <h1>Bien</h1>
             <hr>
         </div>
         <div class="row">
