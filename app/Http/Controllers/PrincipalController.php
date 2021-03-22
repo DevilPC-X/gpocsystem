@@ -35,32 +35,37 @@ class PrincipalController extends Controller
     }
 
     public function filtrateIndex(Request $request)
-    {        
-        //NUEVA OPERACION                
-        if(trim($request->busquedaNombreProveedor) != ""){
-            $values = Insumo::where('nombre', 'LIKE', '%'.$request->busquedaNombreProveedor.'%')->where('idproyecto', '=', $request->idproyecto)->where('idinsumo', '=', $request->idinsumo)->get();
-        }elseif ($request->idinsumo == 1) {
-            $values = Insumo::where('idproyecto', '=', $request->idproyecto)->where('idinsumo', '=', $request->idinsumo)->filtrateByCategory($request->idcategoria);
+    {
+        $idinsumo = $request->get('idinsumo');
+        $idproyecto = $request->get('idproyecto');
+        $idcategoria = $request->get('idcategoria');
+        $idproveedor = $request->get('idproveedor'); 
+        
+        if($idcategoria == '' && $idproveedor == ''){
+            $values = Insumo::orderBy('idproveedor', 'DESC')
+                ->insumo($idinsumo)
+                ->where('idproyecto', '=', $idproyecto);
+        }else if($idcategoria == ''){
+            $values = Insumo::orderBy('idproveedor', 'DESC')
+                ->insumo($idinsumo)
+                ->where('idproveedor', '=', $idproveedor)
+                ->where('idproyecto', '=', $idproyecto);
+        }else if($idproveedor == ''){
+            $values = Insumo::orderBy('idproveedor', 'DESC')
+                ->insumo($idinsumo)
+                ->where('idcategoria', '=', $idcategoria)
+                ->where('idproyecto', '=', $idproyecto);
         }else{
-            $values = Insumo::where('idproyecto', '=', $request->idproyecto)->where('idinsumo', '=', $request->idinsumo)->filtrateByCategory(1);
+            $values = Insumo::orderBy('idproveedor', 'DESC')
+            ->insumo($idinsumo)
+            ->where('idcategoria', '=', $idcategoria)
+            ->where('idproveedor', '=', $idproveedor)
+            ->where('idproyecto', '=', $idproyecto);
         }
-        //FIN OPERACION NUEVA
-        //if($request->idinsumo == 1){
-        //    $values = Insumo::where('idproyecto', '=', $request->idproyecto)->where('idinsumo', '=', $request->idinsumo)->filtrateByCategory($request->idcategoria)->filtradoPorProveedores($request->idproveedor);
-        //}else{
-        //    $values = Insumo::where('idproyecto', '=', $request->idproyecto)->where('idinsumo', '=', $request->idinsumo)->filtrateByCategory(1)->filtradoPorProveedores($request->idproveedor);
-        //}        
 
         $id_proyecto =  $request->idproyecto;
         return view('user.index', compact('values', 'id_proyecto'));        
     }
-
-    /*public function filtrateInsumos(Request $request)
-    {
-        $values = Insumo::where('idproyecto', '=', $request->idproyecto)->filtrateBySupplies($request->idinsumo);
-        $id_proyecto = $request->idproyecto;
-        return view('user.index', compact('values', 'id_proyecto'));
-    }*/
 
     public function nameProject()
     {        
@@ -92,16 +97,6 @@ class PrincipalController extends Controller
         $id_proyecto = $request->idproyecto;        
 
         return view('user.index', compact('values', 'id_proyecto'));
-    }
-
-    public function view()
-    {
-        return view('user.test');
-    }
-
-    public function test(Request $request)
-    {
-        return $request;
     }
     
 }

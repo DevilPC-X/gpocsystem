@@ -16,11 +16,9 @@
                 null, ['class'=>'form-control verifySupplie', 'id'=>'vsupplie'])!!}
                 {!!Form::hidden('idproyecto', $id_proyecto)!!}
                 {!!Form::select('idproveedor', \App\Proveedor::pluck('nombre', 'id'), null,
-                ['class'=>'form-control verificarProveedor', 'placeholder'=>'Seleccione un proveedor...', 'valid',
-                'required'])!!}
+                ['class'=>'form-control verificarProveedor', 'placeholder'=>'Seleccione un proveedor...', 'valid'])!!}
                 {!!Form::select('idcategoria', \App\Categoria::pluck('nombre', 'id'), null,
-                ['class'=>'form-control verifyIndex', 'placeholder'=>'Seleccione una categoria...', 'valid',
-                'required'])!!}
+                ['class'=>'form-control verifyIndex', 'placeholder'=>'Seleccione una categoria...', 'valid'])!!}
                 <div class="input-group-prepend">
                     {!!Form::button('<i class="fa fa-search"></i>', ['type'=>'submit', 'class'=>'btn btn-primary'])!!}
                 </div>
@@ -35,7 +33,7 @@
                     <tr class="table-success">
                         <th>Nombre</th>
                         <th>Unidad</th>
-                        <th>Precio Unitario</th>
+                        <th>P. Unitario</th>
                         <th>Categoria</th>
                         <th>Proveedores</th>
                         <th>Añadir</th>

@@ -66,8 +66,8 @@ class AddController extends Controller
         $total = 0;
         
         foreach($insumo as $item){
-            if ($item->idinsumo == 2) {
-                $total += $item->precio_unitario * $item->cantidad * 8;
+            if ($item->idinsumo == 2 && $item->idproyecto == 1) {                
+                $total += $item->precio_unitario * $item->cantidad * 4;
             }else{
                 $total += $item->precio_unitario * $item->cantidad;
             }
@@ -90,8 +90,8 @@ class AddController extends Controller
 
         foreach($carrito as $item){
             //NUEVA OPERACION
-            if ($item['idinsumo'] == 2) {
-                $total += $item['precio_unitario'] * $item['cantidad'] * 8;
+            if ($item['idinsumo'] == 2 && $item['idproyecto'] == 1) {
+                $total += $item['precio_unitario'] * $item['cantidad'] * 4;
                 $this->saveOrderItem($item, $idactividad);
             }else{           
                 //OPERACION EXISTENTE         
@@ -106,13 +106,13 @@ class AddController extends Controller
     private function saveOrderItem($item, $idactividad)
     {       
         //NUEVA OPERACION
-        if ($item['idinsumo'] == 2) {
+        if ($item['idinsumo'] == 2 && $item['idproyecto'] == 1) {
             OrdenItem::create([
                 'idinsumo'=>$item->idinsumo,
                 'nombre'=> $item->nombre,
                 'precio_unitario'=>$item->precio_unitario,
                 'cantidad'=>$item->cantidad,
-                'subtotal'=>$item['precio_unitario'] * $item['cantidad'] * 8,
+                'subtotal'=>$item['precio_unitario'] * $item['cantidad'] * 4,
                 'idactividad'=> $idactividad,
                 'idusuario'=>Auth::user()->id
             ]);

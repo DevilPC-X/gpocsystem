@@ -18,7 +18,7 @@
                         <th>Nombre</th>
                         <th>Unidad</th>
                         <th>Cantidad</th>
-                        <th>Precio Unitario</th>
+                        <th>P. Unitario</th>
                         <th>Sub Total</th>
                         <th>Eliminar</th>
                     </tr>
@@ -26,9 +26,9 @@
                 <tbody>
                     @forelse($insumo as $sup)
                     <tr>
-                        <td style="heigth: 10px; width: 50%;"><small>{{$sup->nombre}}</small></td>
+                        <td style="heigth: 10px; width: 30%;"><small>{{$sup->nombre}}</small></td>
                         <td style="heigth: 10px; width: 5%;"><small>{{$sup->unidad}}</small></td>
-                        <td style="heigth: 10px; width: 20%;">
+                        <td style="heigth: 10px; width: 10%;">
                             <small>
                                 <input style="width: 20%;" type="number" name="cantidad" id="insumo_{{$sup->id}}"
                                     value="{{$sup->cantidad}}" min="1" max="100">
@@ -40,9 +40,9 @@
                         </td>
                         <td style="heigth: 10px; width: 10%;"><small>{{$sup->precio_unitario}}</small></td>
                         <!--NUEVA OPERACION-->
-                        @if($sup->idinsumo == 2)
+                        @if($sup->idinsumo == 2 && $sup->idproyecto == 1)
                         <td style="heigth: 10px; width: 10%;">
-                            <small>{{number_format(($sup->precio_unitario * $sup->cantidad)*8, 2)}}</small>
+                            <small>{{number_format(($sup->precio_unitario * $sup->cantidad)*4, 2)}}</small>
                         </td>
                         @else
                         <td style="heigth: 10px; width: 10%;">
@@ -50,8 +50,10 @@
                         </td>
                         @endif
                         <!--FIN OPERACION NUEVA-->
-                        <td><a href="{{route('insumo-borrar', $sup->id)}}" class="btn btn-danger btn-sm"><i
-                                    class="fa fa-trash"></i></a></td>
+                        <td style="heigth: 10px; width: 5%;">
+                            <a href="{{route('insumo-borrar', $sup->id)}}" class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash"></i></a>
+                        </td>
                     </tr>
                     @empty
                     <tr>

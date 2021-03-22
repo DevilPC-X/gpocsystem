@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'apmaterno'=>'Gonzalez',
         	'email'=>'d10smessirmxhck@gmail.com',
         	'type'=>'Administrador',
-        	'password'=>bcrypt('12345678')
+        	'password'=>bcrypt('gpocadmin')
     	]);
 
     	User::create([

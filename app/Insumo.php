@@ -63,4 +63,11 @@ class Insumo extends Model
             return $query->where('nombre', 'LIKE', "%$nombre%");
         }
     }
+
+    public function scopeInsumo($query, $idinsumo)
+    {
+        if($idinsumo){
+            return $query->where('idinsumo', '=', $idinsumo)->get();
+        }
+    }
 }
