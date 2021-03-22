@@ -18,7 +18,8 @@
                     <p>
                         <b>GPOC System</b> es una herramienta rápida y de uso fácil para la consulta de costos, análisis
                         de precios unitarios y la elaboración de presupuestos para la Industria de la Construcción.
-
+                    </p>
+                    <p>
                         El objetivo de <b>GPOC System</b> es de generar el cálculo de presupuesto de una obra civil de
                         pequeñas y medianas empresas.
                     </p>
