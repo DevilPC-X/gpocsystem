@@ -86,7 +86,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="7">
+                        <td colspan="8">
                             <h3>No se han encontrado registros <i class="far fa-sad-tear"></i></h3>
                         </td>
                     </tr>
