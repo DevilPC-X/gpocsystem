@@ -15,9 +15,9 @@
                 {!!Form::select('idinsumo', ['1'=>'Materiales', '2'=>'Mano de Obra', '3'=>'Maquinaria'],
                 null, ['class'=>'form-control verifySupplie', 'id'=>'vsupplie'])!!}
                 {!!Form::hidden('idproyecto', $id_proyecto)!!}
-                {!!Form::text('busquedaNombreProveedor', null, ['class'=>'form-control verifyNombre', 'id'=>'vnombre',
-                'aria-label'=>'busquedaNombreProveedor', 'aria-describedby'=>'basic-addon2', 'required',
-                'placeholder'=>'Busqueda por Nombre, Proveedor'])!!}
+                {!!Form::select('idproveedor', \App\Proveedor::pluck('nombre', 'id'), null,
+                ['class'=>'form-control verificarProveedor', 'placeholder'=>'Seleccione un proveedor...', 'valid',
+                'required'])!!}
                 {!!Form::select('idcategoria', \App\Categoria::pluck('nombre', 'id'), null,
                 ['class'=>'form-control verifyIndex', 'placeholder'=>'Seleccione una categoria...', 'valid',
                 'required'])!!}
@@ -43,6 +43,7 @@
                 </thead>
                 <tbody>
                     @forelse($values as $var)
+                    {!!Form::open(['route'=>['insumo-agregar', $var->id], 'method'=>'GET'])!!}
                     <tr>
                         <td id="size-row"><small>{{$var->nombre}}</small></td>
                         <td id="size-row"><small>{{$var->unidad}}</small></td>
@@ -64,9 +65,11 @@
                             <h3 class="text-center"><u>No se han encontrado registros</u></h3>
                         </td>
                     </tr>
+
                     @endforelse
                 </tbody>
             </table>
+            {!!Form::close()!!}
         </div>
     </div>
 </section>

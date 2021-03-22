@@ -52,7 +52,8 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon2">Tipo de Usuario</span>
                 </div>
-                {!!Form::select('type', ['Usuario'=>'Usuario', 'Administrador'=>'Administrador'], null, ['class'=>'form-control',
+                {!!Form::select('type', ['Usuario'=>'Usuario', 'Administrador'=>'Administrador'], null,
+                ['class'=>'form-control',
                 'aria-label'=>'type', 'aria-describedby'=>'basic-addon2', 'valid','required',
                 'placeholder'=>'Seleccione el tipo de usuario'])!!}
             </div>
@@ -69,10 +70,10 @@
                 </div>
                 {!!Form::password('password_confirmation', ['class'=>'form-control', 'required',
                 'placeholder'=>'Confirme la contraseña', 'id'=>'password_confirm'])!!}
-            </div>          
+            </div>
         </div>
-        <a href="{{route('usuarios.index')}}" class="btn btn-warning btn-sm"><i class="fa fa-ban"></i> Cancelar</a>
-        {!!Form::button('Guardar <i class="fa fa-check"></i>', ['class'=>'btn btn-success btn-sm', 
+        <a href="{{route('usuarios.index')}}" class="btn btn-warning btn-sm">Cancelar <i class="fa fa-ban"></i></a>
+        {!!Form::button('Guardar <i class="fa fa-check"></i>', ['class'=>'btn btn-success btn-sm',
         'onclick'=>'validarPassword();'])!!}
         <hr>
         {!!Form::close()!!}

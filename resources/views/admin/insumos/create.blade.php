@@ -80,8 +80,10 @@
                 'valid', 'required',
                 'placeholder'=>'Seleccione el tipo de proveedor...'])!!}
             </div>
+            <a href="{{route('insumos.index')}}" class="btn btn-warning">Cancelar <i class="fa fa-ban fa-sm"></i></a>
+            {!!Form::button('Guardar <i class="fa fa-check fa-sm"></i>', ['type'=>'submit','class'=>'btn
+            btn-success'])!!}
         </div>
-        {!!Form::button('Guardar <i class="fa fa-check"></i>', ['type'=>'submit','class'=>'btn btn-success'])!!}
         {!!Form::close()!!}
     </div>
 </div>

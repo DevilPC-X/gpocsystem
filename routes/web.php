@@ -23,3 +23,7 @@ Route::get('eliminarTodo/', 'AddController@removeAll')->name('insumo-vaciar');
 Route::get('insumo/actualizar/{producto}/{cantidad?}', 'AddController@update')->name('insumo-actualizar');
 
 Route::get('generateReport', 'AddController@generateReport')->name('generateReport');
+
+Route::get('view', 'PrincipalController@view')->name('view');
+Route::post('test', 'PrincipalController@test')->name('test');
+/** FIN DE OPERACIONES */

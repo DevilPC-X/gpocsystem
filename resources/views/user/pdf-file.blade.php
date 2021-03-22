@@ -29,7 +29,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Descripcion</th>
+                                <th>Descripción</th>
                                 <th>Unidad</th>
                                 <th>Cantidad</th>
                                 <th>P. Unitario</th>
@@ -64,7 +64,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Descripcion</th>
+                            <th>Descripción</th>
                             <th>Jornada</th>
                             <th>Cantidad</th>
                             <th>P. Unitario</th>
@@ -97,7 +97,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Descripcion</th>
+                            <th>Descripción</th>
                             <th>Capacidad</th>
                             <th>Cantidad</th>
                             <th>P. Unitario</th>

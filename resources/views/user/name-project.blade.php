@@ -74,7 +74,7 @@
                 'id'=>'description'])!!}
             </div>
             <div class="input-group-mb-3">
-                <span class="basic-addon2">Tiempo Estimado:</span>
+                <span class="basic-addon2">Tiempo a Estimar:</span>
             </div>
             <div class="row">
                 <div class="col-md-2">

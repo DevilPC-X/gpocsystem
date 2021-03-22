@@ -20,10 +20,16 @@ class CategoriaController extends Controller
 
     public function store(Request $request)
     {
-        Categoria::create([
-            'nombre'=>$request->nombre
-        ]);        
-        Alert::success('Categoria '.$request->nombre.' Registrado', 'Exitoso');
+        $nombre = Categoria::where('nombre', '=', $request->nombre);
+
+        if($nombre = $request->nombre){
+            Alert::warning('El dato ingresado ya existe', 'Advertencia');
+        }else{
+            Categoria::create([
+                'nombre'=>$request->nombre
+            ]);        
+            Alert::success('Categoria '.$request->nombre.' Registrado', 'Exitoso');
+        }
         return redirect()->route('categorias.index');
     }
 

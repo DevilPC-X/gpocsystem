@@ -29,7 +29,7 @@ class PrincipalController extends Controller
      */
     public function index(Request $request)
     {        
-        $values = Insumo::orderBy('id', 'ASC')->filtrateByProject($request->idproyecto);
+        $values = Insumo::orderBy('idproveedor', 'DESC')->filtrateByProject($request->idproyecto);
         $id_proyecto = $request->idproyecto;        
         return view('user.index', compact('values', 'id_proyecto'));
     }
@@ -92,6 +92,16 @@ class PrincipalController extends Controller
         $id_proyecto = $request->idproyecto;        
 
         return view('user.index', compact('values', 'id_proyecto'));
+    }
+
+    public function view()
+    {
+        return view('user.test');
+    }
+
+    public function test(Request $request)
+    {
+        return $request;
     }
     
 }

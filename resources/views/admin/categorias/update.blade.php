@@ -26,10 +26,10 @@
                 'placeholder'=>'Escriba el nuevo nombre'])!!}
             </div>
             <hr>
+            <a href="{{route('insumos.index')}}" class="btn btn-warning">Cancelar <i class="fa fa-ban fa-sm"></i></a>
             {!!Form::button('Guardar <i class="fa fa-check"></i>', ['type'=>'submit','class'=>'btn btn-success'])!!}
         </div>
         {!!Form::close()!!}
     </div>
 </div>
 @endsection
-

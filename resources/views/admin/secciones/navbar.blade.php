@@ -22,10 +22,10 @@
             @endif
             @else
             @if(Auth::user()->type == 'Administrador')
-            <li><a href="{{route('insumos.index')}}"><i class="fa fa-building"></i> Insumos</a></li>
+            <li><a href="{{route('insumos.index')}}"><i class="fa fa-tools"></i> Insumos</a></li>
             <li><a href="{{route('usuarios.index')}}"><i class="fa fa-users"></i> Usuarios</a></li>
-            <li><a href="{{route('proyectos.index')}}"><i class="fa fa-users"></i> Proyectos</a></li>
-            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-users"></i> Proveedores</a></li>
+            <li><a href="{{route('proyectos.index')}}"><i class="fa fa-building"></i> Proyectos</a></li>
+            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-people-carry"></i> Proveedores</a></li>
             <li>
                 <a id="navbarDropdown" href="{{route('name-project')}}">
                     <i class="fa fa-wrench"></i>Calcular Presupuesto <span class="caret"></span>

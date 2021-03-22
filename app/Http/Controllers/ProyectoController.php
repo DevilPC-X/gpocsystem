@@ -37,11 +37,18 @@ class ProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        Proyecto::create([
-            'nombre'=>$request->nombre
-        ]);
+        $nombre = Proyecto::where('nombre', '=', $request->nombre);
 
-        Alert::success('Proyecto «'.$request->nombre.'» Creado Correctamente', 'Exitoso');
+        if($nombre = $request->nombre){
+            Alert::warning('El dato ingresado ya existe', 'Advertencia');
+        }else{
+            Proyecto::create([
+                'nombre'=>$request->nombre
+            ]);
+
+            Alert::success('Proyecto «'.$request->nombre.'» Creado Correctamente', 'Exitoso');
+        }
+        
         return redirect()->route('proyectos.index');
     }
 

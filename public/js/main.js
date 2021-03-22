@@ -25,30 +25,16 @@ function main(){
         window.location.href = href + "/" + cantidad;
     });
 
-    $(".verifyNombre").change(function(){
-        var idsupplie = document.getElementById('vnombre');
-        var valuesupp = idsupplie.options[idsupplie.selectedIndex].value;
-
-        if(valuesupp == 1){
-            document.getElementById('vsupplie').addEventListener('click', function(e){
-                idsupplie.disable = false;
-            });
-        }else{
-            document.getElementById('vsupplie').addEventListener('click', function(e){
-                idsupplie.disable = true;
-            });
-        }
-    });
-
     $(".verifySupplie").change(function(){
         var idsupplie = document.getElementById('vsupplie');
         var valuesupp = idsupplie.options[idsupplie.selectedIndex].value;
 
         if(valuesupp == 1){
             $('.verifyIndex').prop('disabled', false);
+            $('.verificarProveedor').prop('disabled', false);
         }else{
             $('.verifyIndex').prop('disabled', true);
-        }
-        console.log(valuesupp);
+            $('.verificarProveedor').prop('disabled', true);
+        }        
     });
 };

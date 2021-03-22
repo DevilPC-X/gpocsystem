@@ -26,6 +26,7 @@
                 'placeholder'=>'Escriba el nuevo nombre'])!!}
             </div>
             <hr>
+            <a href="{{route('proveedores.index')}}" class="btn btn-warning">Cancelar <i class="fa fa-ban"></i></a>
             {!!Form::button('Guardar <i class="fa fa-check"></i>', ['type'=>'submit','class'=>'btn btn-success'])!!}
         </div>
         {!!Form::close()!!}

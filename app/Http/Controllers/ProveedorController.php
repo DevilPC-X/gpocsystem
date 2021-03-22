@@ -37,10 +37,17 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        Proveedor::create([
+        $nombre = Proveedor::where('nombre', '=', $request->nombre);
+
+        if($nombre = $request->nombre){
+            Alert::warning('El dato ingresado ya existe', 'Advertencia');
+        }else{
+            Proveedor::create([
             'nombre'=>$request->nombre
-        ]);
-        Alert::success($request->nombre.' Se Agrego Correctamente');
+            ]);
+            Alert::success($request->nombre.' Se Agrego Correctamente');
+        }
+        
         return redirect()->route('proveedores.index');
     }
 

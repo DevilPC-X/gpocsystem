@@ -56,4 +56,11 @@ class Insumo extends Model
             return $query->where('idinsumo', '=', $id)->get();
         }
     }
+
+    public function scopeFiltrateByNameSupplies($query, $nombre)
+    {
+        if($nombre){
+            return $query->where('nombre', 'LIKE', "%$nombre%");
+        }
+    }
 }

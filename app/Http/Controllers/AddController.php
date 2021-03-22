@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Insumo;
 use App\Actividad;
 use App\OrdenItem;
+use App\Proveedor;
 
 class AddController extends Controller
 {    
@@ -26,6 +27,7 @@ class AddController extends Controller
     public function add(Insumo $producto)
     {
         $insumo = \Session::get('insumo');
+
         $producto->cantidad=1;
         $insumo[$producto->id]=$producto;
         \Session::put('insumo', $insumo);
@@ -50,8 +52,8 @@ class AddController extends Controller
     }
     
     public function update(Insumo $producto, $cantidad)
-    {
-        $insumo=\Session::get('insumo');
+    {        
+        $insumo = \Session::get('insumo');
         $insumo[$producto->id]->cantidad = $cantidad;
         \Session::put('insumo', $insumo);
         
@@ -132,7 +134,7 @@ class AddController extends Controller
     public function showList()
     {
         $insumo = \Session::get('insumo');
-        $total = $this->total();
+        $total = $this->total();        
         return view('user.list-supplies', compact('insumo', 'total'));
     }
 

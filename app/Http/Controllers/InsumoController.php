@@ -24,8 +24,13 @@ class InsumoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
-        $values = Insumo::orderBy('id', 'ASC')->filtradoPorProveedores($request->idproyecto)->paginate(7);
+    {   
+        $nombre = $request->get('nombrecat');
+
+        $values = Insumo::orderBy('idproyecto', 'ASC')
+            ->filtrateByNameSupplies($nombre)
+            ->paginate(7);
+
         return view('admin.insumos.index', compact('values'));
     }
 
@@ -46,17 +51,30 @@ class InsumoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {               
-        Insumo::create([
-            'nombre'=>$request->nombre,            
-            'unidad'=>$request->unidad,
-            'precio_unitario'=>$request->precio_unitario,
-            'idcategoria'=>$request->idcategoria,
-            'idproyecto'=>$request->idproyecto,
-            'idproveedor'=>$request->idproveedor, 
-            'idinsumo'=>$request->idinsumo
-        ]);        
-        Alert::success('Insumo '.$request->nombre.' Registrado', 'Exitoso');
+    {
+        $nombre = Insumo::where('nombre', '=', $request->nombre);
+        $idcategoria = Insumo::where('idcategoria', '=', $request->idcategoria);
+        $idproyecto = Insumo::where('idproyecto', '=', $request->idproyecto);
+        $idproveedor = Insumo::where('idproveedor', '=', $request->idproveedor);
+        $idinsumo = Insumo::where('idinsumo', '=', $request->idinsumo);
+        
+        if($nombre = $request->nombre && $idcategoria = $request->idcategoria &&
+        $idproyecto = $request->idproyecto && $idproveedor = $request->idproveedor &&
+        $idinsumo = $request->idinsumo
+        ){
+            Alert::warning('El dato ingresado ya existe', 'Advertencia');
+        }else{
+            Insumo::create([
+                'nombre'=>$request->nombre,            
+                'unidad'=>$request->unidad,
+                'precio_unitario'=>$request->precio_unitario,
+                'idcategoria'=>$request->idcategoria,
+                'idproyecto'=>$request->idproyecto,
+                'idproveedor'=>$request->idproveedor, 
+                'idinsumo'=>$request->idinsumo
+            ]);        
+            Alert::success('Insumo '.$request->nombre.' Registrado', 'Exitoso');
+        }
         return redirect()->route('insumos.index');
     }
 

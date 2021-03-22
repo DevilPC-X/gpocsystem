@@ -41,8 +41,7 @@
                 <thead>
                     <tr>
                         <th>Nombre de la Categoria</th>
-                        <th>Actualizar</th>
-                        <th>Eliminar</th>
+                        <th colspan="2">Accion a realizar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,12 +50,12 @@
                         <td style="text-align: left;">{{$var->nombre}}</td>
                         <td>
                             <a href="{{route('categorias.edit', $var->id)}}" class="btn btn-info btn-sm">
-                                <i class="fa fa-edit"></i>
+                                Actualizar <i class="fa fa-edit"></i>
                             </a>
                         </td>
                         <td>
                             <button class="btn btn-danger btn-sm" id="{{$var->id}}" onclick="deleteCategories(this);">
-                                <i class="fa fa-trash"></i>
+                                Eliminar <i class="fa fa-trash"></i>
                             </button>
                             {!!Form::open(['route'=>['categorias.destroy', $var->id], 'method'=>'DELETE',
                             'id'=>'formCategories'.$var->id])!!}
@@ -74,5 +73,7 @@
             </table>
         </div>
     </div>
+    <br>
+    <a href="{{route('insumos.index')}}" class="btn btn-warning">Cancelar <i class="fa fa-ban fa-sm"></i></a>
 </div>
 @endsection
